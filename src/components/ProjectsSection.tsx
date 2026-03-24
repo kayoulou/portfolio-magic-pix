@@ -30,7 +30,7 @@ const projects: { title: string; desc: string; tags: string[]; link?: string }[]
   },
   {
     title: "Gestion des présences – Amazon Rekognition",
-    desc: "Système de gestion des présences des étudiants par reconnaissance faciale via les services AWS (S3, DynamoDB, Lambda, Cognito, API Gateway). Accès démo : admin / admin123",
+    desc: "Système de gestion des présences des étudiants par reconnaissance faciale via les services AWS (S3, DynamoDB, Lambda, Cognito, API Gateway).\n\nAdmin : admin@admin.com / Admin1234#\nEnseignant : edem@esmt.sn / Admin1234#",
     tags: ["AWS", "React", "Rekognition", "Serverless"],
     link: "https://main.d3pfa91kl0g5kv.amplifyapp.com",
   },
