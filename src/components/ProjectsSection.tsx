@@ -29,6 +29,12 @@ const projects = [
     tags: ["React.js", "Tailwind CSS"],
   },
   {
+    title: "Gestion des présences – Amazon Rekognition",
+    desc: "Système de gestion des présences des étudiants par reconnaissance faciale via les services AWS (S3, DynamoDB, Lambda, Cognito, API Gateway). Accès démo : admin / admin123",
+    tags: ["AWS", "React", "Rekognition", "Serverless"],
+    link: "https://main.d3pfa91kl0g5kv.amplifyapp.com",
+  },
+  {
     title: "Partage de documents étudiants",
     desc: "Plateforme communautaire de partage de documents pour les étudiants burkinabè à l'ESMT.",
     tags: ["En cours", "Full-Stack"],
