@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { ExternalLink } from "lucide-react";
 
-const projects = [
+const projects: { title: string; desc: string; tags: string[]; link?: string }[] = [
   {
     title: "Plateforme de gestion de pass – BRT/TER",
     desc: "Gestion en temps réel du parcours usager : validation du pass, suivi de trajet, tarification dynamique et facturation.",
