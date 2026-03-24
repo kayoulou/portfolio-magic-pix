@@ -64,9 +64,14 @@ const ProjectsSection = () => (
               </h3>
               {p.link && <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1" />}
             </div>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-2 whitespace-pre-line">
               {p.desc}
             </p>
+            {p.link && (
+              <p className="font-body text-xs text-accent underline underline-offset-2 mb-4 break-all">
+                {p.link}
+              </p>
+            )}
             <div className="flex flex-wrap gap-2">
               {p.tags.map((t) => (
                 <span
