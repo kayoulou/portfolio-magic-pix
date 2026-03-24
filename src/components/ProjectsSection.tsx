@@ -30,7 +30,7 @@ const projects: { title: string; desc: string; tags: string[]; link?: string }[]
   },
   {
     title: "Gestion des présences – Amazon Rekognition",
-    desc: "Système de gestion des présences des étudiants par reconnaissance faciale via les services AWS (S3, DynamoDB, Lambda, Cognito, API Gateway). Accès démo : admin / admin123",
+    desc: "Système de gestion des présences des étudiants par reconnaissance faciale via les services AWS (S3, DynamoDB, Lambda, Cognito, API Gateway).\n\nAdmin : admin@admin.com / Admin1234#\nEnseignant : edem@esmt.sn / Admin1234#",
     tags: ["AWS", "React", "Rekognition", "Serverless"],
     link: "https://main.d3pfa91kl0g5kv.amplifyapp.com",
   },
@@ -64,9 +64,14 @@ const ProjectsSection = () => (
               </h3>
               {p.link && <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1" />}
             </div>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
+            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-2 whitespace-pre-line">
               {p.desc}
             </p>
+            {p.link && (
+              <p className="font-body text-xs text-accent underline underline-offset-2 mb-4 break-all">
+                {p.link}
+              </p>
+            )}
             <div className="flex flex-wrap gap-2">
               {p.tags.map((t) => (
                 <span
