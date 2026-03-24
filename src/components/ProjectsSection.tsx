@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import { ExternalLink } from "lucide-react";
 
-const projects = [
+const projects: { title: string; desc: string; tags: string[]; link?: string }[] = [
   {
     title: "Plateforme de gestion de pass – BRT/TER",
     desc: "Gestion en temps réel du parcours usager : validation du pass, suivi de trajet, tarification dynamique et facturation.",
@@ -29,6 +29,12 @@ const projects = [
     tags: ["React.js", "Tailwind CSS"],
   },
   {
+    title: "Gestion des présences – Amazon Rekognition",
+    desc: "Système de gestion des présences des étudiants par reconnaissance faciale via les services AWS (S3, DynamoDB, Lambda, Cognito, API Gateway). Accès démo : admin / admin123",
+    tags: ["AWS", "React", "Rekognition", "Serverless"],
+    link: "https://main.d3pfa91kl0g5kv.amplifyapp.com",
+  },
+  {
     title: "Partage de documents étudiants",
     desc: "Plateforme communautaire de partage de documents pour les étudiants burkinabè à l'ESMT.",
     tags: ["En cours", "Full-Stack"],
@@ -41,19 +47,22 @@ const ProjectsSection = () => (
       <SectionHeading title="Projets" subtitle="Académiques & personnels" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {projects.map((p, i) => (
-          <motion.div
+          <motion.a
             key={p.title}
+            href={p.link}
+            target={p.link ? "_blank" : undefined}
+            rel={p.link ? "noopener noreferrer" : undefined}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="group bg-card rounded-xl p-6 shadow-card border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+            className={`group bg-card rounded-xl p-6 shadow-card border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 block ${p.link ? "cursor-pointer" : "cursor-default"}`}
           >
             <div className="flex items-start justify-between mb-3">
               <h3 className="font-display text-base font-bold text-foreground leading-snug pr-2">
                 {p.title}
               </h3>
-              <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1" />
+              {p.link && <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1" />}
             </div>
             <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">
               {p.desc}
@@ -68,7 +77,7 @@ const ProjectsSection = () => (
                 </span>
               ))}
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>
