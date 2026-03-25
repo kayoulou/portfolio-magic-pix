@@ -9,37 +9,35 @@ const highlights = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="py-24 bg-background">
-    <div className="container mx-auto px-4">
+  <section id="about" className="py-28 bg-background">
+    <div className="container mx-auto px-6">
       <SectionHeading title="À propos" />
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto"
+        className="max-w-2xl mx-auto"
       >
-        <p className="font-body text-lg text-muted-foreground leading-relaxed text-center mb-12">
+        <p className="font-body text-base text-muted-foreground leading-[1.8] text-center mb-14">
           Étudiante en fin de cycle Master en Ingénierie des Systèmes d'Information,
           je me spécialise dans la conception d'architectures logicielles robustes et le
           développement d'applications Web performantes. Passionnée par l'ingénierie logicielle,
           je maîtrise les cycles de développement Front‑end et Back‑end.
         </p>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 gap-4">
           {highlights.map((h, i) => (
             <motion.div
               key={h.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card shadow-card border border-border"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="flex flex-col items-center gap-2.5 p-5 rounded-xl bg-secondary/50"
             >
-              <div className="w-12 h-12 rounded-full gradient-accent flex items-center justify-center">
-                <h.icon size={20} className="text-accent-foreground" />
-              </div>
-              <span className="font-display text-sm font-semibold text-foreground">{h.label}</span>
+              <h.icon size={18} className="text-accent" />
+              <span className="font-display text-xs font-semibold text-foreground uppercase tracking-wide">{h.label}</span>
               <span className="font-body text-sm text-muted-foreground text-center">{h.value}</span>
             </motion.div>
           ))}

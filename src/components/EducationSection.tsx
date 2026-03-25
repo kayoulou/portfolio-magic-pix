@@ -18,53 +18,51 @@ const certifications = [
 ];
 
 const EducationSection = () => (
-  <section id="education" className="py-24 bg-background">
-    <div className="container mx-auto px-4">
+  <section id="education" className="py-28 bg-background">
+    <div className="container mx-auto px-6">
       <SectionHeading title="Formation" />
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-        {/* Cursus */}
+      <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-12">
         <div>
           <div className="flex items-center gap-2 mb-6">
-            <GraduationCap size={20} className="text-accent" />
-            <h3 className="font-display text-xl font-bold text-foreground">Cursus académique</h3>
+            <GraduationCap size={18} className="text-accent" />
+            <h3 className="font-display text-base font-semibold text-foreground tracking-tight">Cursus académique</h3>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3">
             {education.map((e, i) => (
               <motion.div
                 key={e.period}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: i * 0.1 }}
-                className="bg-card rounded-lg p-4 shadow-card border border-border"
+                transition={{ duration: 0.35, delay: i * 0.08 }}
+                className="p-4 rounded-lg bg-secondary/50"
               >
-                <span className="font-body text-xs text-accent font-semibold">{e.period}</span>
-                <h4 className="font-display text-sm font-bold text-foreground mt-1">{e.title}</h4>
+                <span className="font-body text-[11px] text-accent font-semibold">{e.period}</span>
+                <h4 className="font-display text-sm font-semibold text-foreground mt-0.5 tracking-tight">{e.title}</h4>
                 <p className="font-body text-xs text-muted-foreground">{e.school}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Certifications */}
         <div>
           <div className="flex items-center gap-2 mb-6">
-            <Award size={20} className="text-accent" />
-            <h3 className="font-display text-xl font-bold text-foreground">Certifications</h3>
+            <Award size={18} className="text-accent" />
+            <h3 className="font-display text-base font-semibold text-foreground tracking-tight">Certifications</h3>
           </div>
           <motion.ul
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="space-y-3"
+            className="space-y-2"
           >
             {certifications.map((c) => (
               <li
                 key={c}
-                className="flex gap-3 items-start font-body text-sm text-muted-foreground bg-card rounded-lg p-4 shadow-card border border-border"
+                className="flex gap-2.5 items-start font-body text-sm text-muted-foreground p-3 rounded-lg bg-secondary/50"
               >
-                <span className="text-accent mt-0.5">✦</span>
+                <span className="text-accent text-xs mt-0.5">✦</span>
                 {c}
               </li>
             ))}

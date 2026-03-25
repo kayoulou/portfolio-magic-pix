@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
 
 const projects: { title: string; desc: string; tags: string[]; link?: string }[] = [
   {
@@ -42,47 +42,50 @@ const projects: { title: string; desc: string; tags: string[]; link?: string }[]
 ];
 
 const ProjectsSection = () => (
-  <section id="projects" className="py-24 bg-background">
-    <div className="container mx-auto px-4">
+  <section id="projects" className="py-28 bg-background">
+    <div className="container mx-auto px-6">
       <SectionHeading title="Projets" subtitle="Académiques & personnels" />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
         {projects.map((p, i) => (
-          <motion.a
+          <motion.div
             key={p.title}
-            href={p.link}
-            target={p.link ? "_blank" : undefined}
-            rel={p.link ? "noopener noreferrer" : undefined}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className={`group bg-card rounded-xl p-6 shadow-card border border-border hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 block ${p.link ? "cursor-pointer" : "cursor-default"}`}
+            transition={{ duration: 0.4, delay: i * 0.06 }}
+            className="group rounded-xl p-5 bg-card shadow-card hover:shadow-card-hover transition-all duration-300"
           >
-            <div className="flex items-start justify-between mb-3">
-              <h3 className="font-display text-base font-bold text-foreground leading-snug pr-2">
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-display text-sm font-semibold text-foreground leading-snug pr-2 tracking-tight">
                 {p.title}
               </h3>
-              {p.link && <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1" />}
+              {p.link && <ArrowUpRight size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-0.5" />}
             </div>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mb-2 whitespace-pre-line">
+            <p className="font-body text-xs text-muted-foreground leading-relaxed mb-3 whitespace-pre-line">
               {p.desc}
             </p>
             {p.link && (
-              <p className="font-body text-xs text-accent underline underline-offset-2 mb-4 break-all">
-                {p.link}
-              </p>
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-body text-xs text-accent hover:underline underline-offset-2 mb-3"
+              >
+                <ExternalLink size={12} />
+                Voir le projet
+              </a>
             )}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium font-body"
+                  className="px-2 py-0.5 rounded-md bg-accent/8 text-accent text-[11px] font-medium font-body"
                 >
                   {t}
                 </span>
               ))}
             </div>
-          </motion.a>
+          </motion.div>
         ))}
       </div>
     </div>

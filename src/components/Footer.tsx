@@ -1,7 +1,7 @@
 const Footer = () => (
-  <footer className="py-6 bg-primary text-center">
-    <p className="font-body text-xs text-primary-foreground/50">
-      © {new Date().getFullYear()} Josée Manuella Ouedraogo. Tous droits réservés.
+  <footer className="py-5 bg-foreground text-center">
+    <p className="font-body text-[11px] text-background/40">
+      © {new Date().getFullYear()} Josée Manuella Ouedraogo
     </p>
   </footer>
 );
